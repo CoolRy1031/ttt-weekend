@@ -45,7 +45,6 @@ function render () {
   board.forEach(function(square, idx){
     if (square === 1) {
       squareEls[idx].textContent ='X'
-
     } else if (square === -1) {
       squareEls[idx].textContent = 'O'
     } else if (square === null) {
@@ -53,7 +52,7 @@ function render () {
 
   }
     if (winner === null){
-     messageEl.textContent = `It's the next players turn at any empty space at ${board}`
+      messageEl.textContent = `Player ${turn} turn`
     } else if (winner === 'T'){
       `all the spaces on the ${board} have been played and it's a Tie`
     }
@@ -86,9 +85,8 @@ function getWinner() {
       return 'T'
     }else {
       return null
-
+      
     }
   } 
 } 
-
 
