@@ -1,5 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
-const winningCombos = [0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,7,3], [2,5,8],[2,4,6], [0,4,8] 
+const winningCombos = [0,1,2]; [3,4,5]; [6,7,8]; [0,3,6]; [1,7,3]; [2,5,8];[2,4,6]; [0,4,8] 
 
 
 
@@ -15,6 +15,7 @@ let winner = null
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.querySelector('#message')
 const squareEls = document.querySelectorAll('.square')
+console.log(squareEls)
 
 
 
@@ -59,11 +60,17 @@ function render () {
 
 function handleClick(evt){
   const sqIdx = parseInt(evt.target.id.slice(2))
-  if (winner !== null){
+  if (board[sqIdx] !== null){
+    return `Square has been taken`
+  } else if (winner === !null){
     return `Game is over`
-  } else if (board === sqIdx){
-    return `square has been taken`
   }
+  board[sqIdx] = turn
+  turn = turn * (-1)
+  getWinner()
+  render ()
+}
+function getWinner (){
+
 
 }
-
