@@ -54,7 +54,7 @@ function render () {
     if (winner === null){
       messageEl.textContent = `Player ${turn} turn`
     } else if (winner === 'T'){
-      `all the spaces on the ${board} have been played and it's a Tie`
+      messageEl.textContent = "It's a Tie"
     }
  })
 }
