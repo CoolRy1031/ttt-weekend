@@ -15,6 +15,7 @@ let winner = null
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.querySelector('#message')
 const squareEls = document.querySelectorAll('.square')
+const resetBtn = document.querySelector('.resetBtn')
 
 
 
@@ -29,6 +30,7 @@ squareEls.forEach(function(square){
   square.addEventListener('click', handleClick)
   
 })
+resetBtn.addEventListener('click', init )
 
 /*-------------------------------- Functions --------------------------------*/
 init ()
@@ -52,7 +54,7 @@ function render () {
 
   }
     if (winner === null){
-      messageEl.textContent = `Player ${turn} turn`
+      messageEl.textContent = `Player ${turn === 1 ? "O" : "X"}'s turn `
     } else if (winner === 'T'){
       messageEl.textContent = "It's a Tie"
     }
