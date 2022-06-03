@@ -15,7 +15,7 @@ let winner = null
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.querySelector('#message')
 const squareEls = document.querySelectorAll('.square')
-const resetBtn = document.querySelector('.resetBtn')
+const resetBtn = document.querySelector('#resetBtn')
 
 
 
