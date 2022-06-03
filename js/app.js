@@ -37,8 +37,8 @@ init ()
 
 function init () {
   board = [null, null, null, null, null, null, null, null, null]
-  let turn = 1
-  let winner = null
+  turn = 1
+  winner = null
   render ()
 }
 
@@ -54,7 +54,7 @@ function render () {
 
   }
     if (winner === null){
-      messageEl.textContent = `Player ${turn === 1 ? "O" : "X"}'s turn `
+      messageEl.textContent = `Player ${turn === 1 ? "X" : "O"}'s turn `
     } else if (winner === 'T'){
       messageEl.textContent = "It's a Tie"
     }
@@ -62,33 +62,37 @@ function render () {
 }
 
 function handleClick(evt){
-  const sqIdx = parseInt(evt.target.id.slice(2))
-  console.log(sqIdx)
+  const sqIdx = parseInt(evt.target.id.substring(2))
   if (board[sqIdx] !== null){
-    return `Square has been taken`
-  } else if (winner !== null){
-    return `Game is over`
+    return 
+  } if (winner !== null){
+    return 
   }
   board[sqIdx] = turn
   turn = turn * (-1)
-  getWinner()
+  getWinner ()
   render ()
 }
 
 function getWinner() {
+  let sum
   for (let i = 0; i < winningCombos.length; i++){
-    let sum = board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] 
-      if (sum === 3){
-        
-        return 1
-      } else if (sum === -3){
-        return -1
-    } else if (board.includes(null) === false){
-      return 'T'
-    }else {
-      return null
-      
+    sum = board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] 
+    console.log(sum)
+    if (sum === 3){
+      winner = 1
+      return
+    } else if (sum === -3){
+      winner = -1
+      return
+  } else if (board.includes(null) === false){
+    winner =  'T'
+    return
+  }else {
+    winner = null
     }
+    
+    
   } 
 } 
 
