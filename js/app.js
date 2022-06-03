@@ -58,7 +58,7 @@ function render () {
     } else if (winner === 'T'){
       messageEl.textContent = "It's a Tie"
     }
- })
+  })
 }
 
 function handleClick(evt){
@@ -85,10 +85,10 @@ function getWinner() {
     } else if (sum === -3){
       winner = -1
       return
-  } else if (board.includes(null) === false){
+    } else if (board.includes(null) === false){
     winner =  'T'
     return
-  }else {
+    }else {
     winner = null
     }
     
