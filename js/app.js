@@ -16,6 +16,7 @@ let winner = null
 const messageEl = document.querySelector('#message')
 const squareEls = document.querySelectorAll('.square')
 const resetBtn = document.querySelector('#resetBtn')
+const baseballAudio = new Audio('../audio/baseballhit.mp3')
 
 
 
@@ -31,9 +32,16 @@ squareEls.forEach(function(square){
   
 })
 resetBtn.addEventListener('click', init )
+resetBtn.addEventListener('click', evt =>{
+  baseballAudio.volume = .2
+  baseballAudio.play()
+})
 
 /*-------------------------------- Functions --------------------------------*/
 init ()
+baseballAudio.volume = .2
+baseballAudio.play()
+
 
 function init () {
   board = [null, null, null, null, null, null, null, null, null]
